@@ -1,0 +1,25 @@
+
+// Default variable overrides
+
+// Imports
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Additional
+
+.toggle-check-pair {
+    display: flex;
+    
+    width: 30%;
+
+    padding: 0;
+    
+    @extend .border;
+    border-radius: 30px;
+
+    background-color: $white;
+}
+
+.toggle-check-pair label {
+    font-size: 1.3em;
+}

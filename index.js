@@ -11,6 +11,7 @@ app.set('view engine', 'pug');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/dist/bootstrap.min.js", express.static(__dirname + '/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'));
 
 app.use('/', indexRouter);
 
