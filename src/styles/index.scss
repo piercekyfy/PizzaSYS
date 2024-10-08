@@ -1,0 +1,77 @@
+@import './main.scss';
+
+input {
+    @extend .form-control;
+}
+
+.toggle-check-pair {
+    padding: 0;
+    
+    @extend .border;
+    border-radius: 30px;
+
+    background-color: $white;
+}
+
+.toggle-check-pair label {
+    font-size: 1.3em;
+}
+
+.order-body {
+    @extend .col-md-4;
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .gap-2;
+}
+
+.btn-primary-toggle-white {
+    @extend .btn-primary;
+    border-width: 0px;
+    color: $black;
+    background-color: $white;
+
+    &:checked {
+        color: $white;
+        background-color: $primary;
+    }
+}
+
+.cart-body {
+    @extend .d-flex;
+    @extend .gap-2;
+    @extend .border;
+
+    max-height: 40%;
+    padding: 3px;
+    border-radius: 6px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.menu-item-s {
+    width: 100%;
+    @extend .card;
+    
+    >div {
+        @extend .card-body;
+
+        >div {
+            @extend .d-flex;
+            @extend .flex-row;
+
+            >h5 { margin-bottom: 0; @extend .card-title; }
+            >h6 { height: 75%; @extend .ms-1; align-self: end; @extend .card-subtitle; @extend .text-body-secondary; }
+            >p { @extend .card-text; @extend .mb-0; }
+        } 
+    }
+
+    .btn-add {
+        @extend .btn;
+        @extend .btn-outline-success;
+    }
+
+    .btn-remove {
+        @extend .btn;
+        @extend .btn-outline-danger;
+    }
+}
