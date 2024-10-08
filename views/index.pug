@@ -4,10 +4,15 @@ html
 		title=Index
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		link(href="/dist/main.css" rel="stylesheet")
-	body
+	body.container-fluid
+		nav.row.navbar.navbar-expand-lg.bg-body-tertiary
+			div.container-fluid
+				a.navbar-brand(href='/') Saint Alfredo's Pizza
 		div.row
-			div.col.menu
-				form.d-flex.gap-3.menu-header
+			div.col-md-2
+				p Side Column
+			div.col-md-6.menu
+				form.d-flex.gap-3.mb-3.menu-header
 					input.form-control(type='search' placeholder='Search')
 					button.btn.btn-outline-success(type='submit') Search
 				div.d-flex.flex-column.gap-3.menu-body
@@ -20,15 +25,16 @@ html
 								div.card-body.clearfix
 									h5.card-title Pepperoni
 									h6.card-subtitle.mb-2.text-body-secondary Tomato, Cheese, Pepperoni, Basil
-									p.card-text.mb-0 The classic Pepperoni pizza, with Alfredo's homemade tomato sauce.
-									button.btn.btn-primary.float-end Add
-			form.col.order.d-flex.flex-column.gap-2
-				div.d-flex.justify-content-center.m-1
-						div.form-group.toggle-check-pair
-							input#check-delivery.btn-check(type='radio' name='radio-delivery' checked required)
-							label.flex-fill.btn.btn-primary(for='check-delivery' style='--bs-btn-border-width: 0px; --bs-btn-color: #000; --bs-btn-active-color: #FFF; --bs-btn-active-bg: #0d6efd; --bs-btn-bg: #FFF; border-radius: 30px 0px 0px 30px;') Delivery
-							input#check-collection.btn-check(type='radio' name='radio-delivery' required)
-							label.flex-fill.btn.btn-primary(for='check-collection' style='--bs-btn-border-width: 0px; --bs-btn-color: #000; --bs-btn-active-color: #FFF; --bs-btn-active-bg: #0d6efd; --bs-btn-bg: #FFF; border-radius: 0px 30px 30px 0px;') Collection
+									div.d-flex.flex-direction-row.justify-content-between
+										p.card-text.mb-0 The classic Pepperoni pizza, with Alfredo's homemade tomato sauce.
+										button.btn.btn-primary Add
+			form.col-md-4.d-flex.flex-column.gap-2.order-body
+				div.mx-auto
+					div.form-group.toggle-check-pair
+						input#check-delivery.btn-check(type='radio' name='radio-delivery' checked required)
+						label.btn.btn-primary(for='check-delivery' style='--bs-btn-border-width: 0px; --bs-btn-color: #000; --bs-btn-active-color: #FFF; --bs-btn-active-bg: #0d6efd; --bs-btn-bg: #FFF; border-radius: 30px 0px 0px 30px;') Delivery
+						input#check-collection.btn-check(type='radio' name='radio-delivery' required)
+						label.btn.btn-primary(for='check-collection' style='--bs-btn-border-width: 0px; --bs-btn-color: #000; --bs-btn-active-color: #FFF; --bs-btn-active-bg: #0d6efd; --bs-btn-bg: #FFF; border-radius: 0px 30px 30px 0px;') Collection
 				div.form-group.form-floating
 					input.form-control(type='text' name='name')
 					label(for='name') Name
@@ -38,7 +44,7 @@ html
 				div.form-group.form-floating
 					input.form-control(type='tel' name='phone')
 					label(for='phone') Phone (Optional)
-				div.row
+				div.row.input-address-group
 					div.col-md-8.form-group
 						div.form-floating
 							input.form-control(type='text' name='address')
@@ -48,5 +54,68 @@ html
 							input.form-control(type='text' name='postcode')
 							label(for='name') Eircode (Optional)
 				h3.mb-1 Cart
-				hr.mt-0
+				div.d-flex.flex-column.gap-2.border.cart-body(style='max-height: 40%; padding: 3px; border-radius: 6px; overflow: scroll; overflow-x: hidden;')
+					div.w-100.card.menu-item-s
+						div.card-body
+							div.d-flex.flex-row
+								h5.mb-0.card-title Pepperoni
+								h6.h-75.ms-1.align-self-end.card-subtitle.text-body-secondary Tomato, Cheese, Pepperoni, Basil	
+							div.d-flex.flex-row.gap-1
+								div
+									p.card-text.mb-0 The classic Pepperoni pizza, with Alfredo's homemade tomato sauce.
+								div.d-flex.flex-row.h-25.align-self-end.gap-1
+									button.btn.btn-outline-danger -
+									input.form-control(type='number' value=1 min=0 max=99)
+									button.btn.btn-outline-success +
+					div.w-100.card.menu-item-s
+						div.card-body
+							div.d-flex.flex-row
+								h5.mb-0.card-title Pepperoni
+								h6.h-75.ms-1.align-self-end.card-subtitle.text-body-secondary Tomato, Cheese, Pepperoni, Basil	
+							div.d-flex.flex-row.gap-1
+								div
+									p.card-text.mb-0 The classic Pepperoni pizza, with Alfredo's homemade tomato sauce.
+								div.d-flex.flex-row.h-25.align-self-end.gap-1
+									button.btn.btn-outline-danger -
+									input.form-control(type='number' value=1 min=0 max=99)
+									button.btn.btn-outline-success +
+					div.w-100.card.menu-item-s
+						div.card-body
+							div.d-flex.flex-row
+								h5.mb-0.card-title Pepperoni
+								h6.h-75.ms-1.align-self-end.card-subtitle.text-body-secondary Tomato, Cheese, Pepperoni, Basil	
+							div.d-flex.flex-row.gap-1
+								div
+									p.card-text.mb-0 The classic Pepperoni pizza, with Alfredo's homemade tomato sauce.
+								div.d-flex.flex-row.h-25.align-self-end.gap-1
+									button.btn.btn-outline-danger -
+									input.form-control(type='number' value=1 min=0 max=99)
+									button.btn.btn-outline-success +			
+					div.w-100.card.menu-item-s
+						div.card-body
+							div.d-flex.flex-row
+								h5.mb-0.card-title Pepperoni
+								h6.h-75.ms-1.align-self-end.card-subtitle.text-body-secondary Tomato, Cheese, Pepperoni, Basil	
+							div.d-flex.flex-row.gap-1
+								div
+									p.card-text.mb-0 The classic Pepperoni pizza, with Alfredo's homemade tomato sauce.
+								div.d-flex.flex-row.h-25.align-self-end.gap-1
+									button.btn.btn-outline-danger -
+									input.form-control(type='number' value=1 min=0 max=99)
+									button.btn.btn-outline-success +
+					div.w-100.card.menu-item-s
+						div.card-body
+							div.d-flex.flex-row
+								h5.mb-0.card-title Pepperoni
+								h6.h-75.ms-1.align-self-end.card-subtitle.text-body-secondary Tomato, Cheese, Pepperoni, Basil	
+							div.d-flex.flex-row.gap-1
+								div
+									p.card-text.mb-0 The classic Pepperoni pizza, with Alfredo's homemade tomato sauce.
+								div.d-flex.flex-row.h-25.align-self-end.gap-1
+									button.btn.btn-outline-danger -
+									input.form-control(type='number' value=1 min=0 max=99)
+									button.btn.btn-outline-success +
+					
+				
+				
 	script(src="/dist/bootstrap.min.js")
