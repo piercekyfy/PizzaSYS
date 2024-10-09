@@ -7,3 +7,6 @@
 
 // Additional
 
+input {
+    @extend .form-control;
+}

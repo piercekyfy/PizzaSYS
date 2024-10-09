@@ -1,3 +1,4 @@
+include ./mixins/nav.pug
 doctype html
 html
 	head
@@ -5,9 +6,7 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		link(href="/dist/index.css" rel="stylesheet")
 	body.container-fluid
-		nav.row.navbar.navbar-expand-lg.bg-body-tertiary
-			div.container-fluid
-				a.navbar-brand(href='/') Saint Alfredo's Pizza
+		+nav
 		div.row.mt-3
 			div.col-md-2
 				p Side Column
@@ -59,7 +58,19 @@ html
 							label(for='name') Eircode (Optional)
 				h3.mx-auto.mb-1 Cart
 				div.cart-body
-					
+					// Menu Item Placeholder (will be moved to Angular)
+					div.menu-item-s
+						div
+							div
+								h5 Pepperoni
+								h6 Tomato, Cheese, Pepperoni, Basil	
+							div
+								div
+									p The classic Pepperoni pizza, with Alfredo's homemade tomato sauce.
+								div.d-flex.flex-row.h-25.align-self-end.gap-1
+									button.btn-remove -
+									input(type='number' value=1 min=0 max=99)
+									button.btn-add +
 				button.btn.btn-primary(type='submit' formaction='./api/test' formmethod='POST') Place Order
 				
 				
