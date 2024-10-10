@@ -12,7 +12,7 @@ html
 				p Side Column
 			div.col-md-6.menu
 				form.d-flex.gap-3.mb-3.menu-header
-					input.form-control(type='search' placeholder='Search')
+					input(type='search' placeholder='Search')
 					button.btn.btn-outline-success(type='submit') Search
 				div.d-flex.flex-column.gap-3.menu-body
 					each category in menu
@@ -39,22 +39,22 @@ html
 						input#check-collection.btn-check(type='radio' name='radio-delivery' required)
 						label.btn.btn-primary-toggle-white(for='check-collection' style='border-radius: 0px 30px 30px 0px; width: 50%;') Collection
 				div.form-group.form-floating
-					input.form-control(type='text' name='name')
+					input(type='text' name='name')
 					label(for='name') Name
 				div.form-group.form-floating
-					input.form-control(type='text' name='email')
+					input(type='text' name='email')
 					label(for='name') E-Mail
 				div.form-group.form-floating
-					input.form-control(type='tel' name='phone')
+					input(type='tel' name='phone')
 					label(for='phone') Phone (Optional)
 				div.row.input-address-group
 					div.col-md-8.form-group
 						div.form-floating
-							input.form-control(type='text' name='address')
+							input(type='text' name='address')
 							label(for='name') Address
 					div.col-md-4.form-group
 						div.form-floating
-							input.form-control(type='text' name='postcode')
+							input(type='text' name='postcode')
 							label(for='name') Eircode (Optional)
 				h3.mx-auto.mb-1 Cart
 				div.cart-body

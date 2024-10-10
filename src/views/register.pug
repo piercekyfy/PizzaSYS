@@ -18,25 +18,25 @@ html.h-100
 					form.w-50.align-self-center.d-flex.flex-column.align-items-center.mx-auto.gap-2.mb-5.register-body
 						h2 Register
 						div.form-group.form-floating.w-100
-							input.form-control(type='text' name='name')
+							input(type='text' name='name')
 							label(for='name') Name
 						div.form-group.form-floating.w-100
-							input.form-control(type='text' name='email')
+							input(type='text' name='email')
 							label(for='name') E-Mail
 						div.form-group.form-floating.w-100
-							input.form-control(type='password' name='password')
+							input(type='password' name='password')
 							label(for='name') Password
 						div.form-group.form-floating.w-100
-							input.form-control(type='tel' name='phone')
+							input(type='tel' name='phone')
 							label(for='phone') Phone (Optional)
 						div.row.input-address-group.w-100
 							div.col-md-8.form-group.p-0.pe-3
 								div.form-floating
-									input.form-control(type='text' name='address')
+									input(type='text' name='address')
 									label(for='name') Address
 							div.col-md-4.form-group.p-0
 								div.form-floating
-									input.form-control(type='text' name='postcode')
+									input(type='text' name='postcode')
 									label(for='name') Eircode (Optional)
 						button.btn.btn-primary.btn-lg.align-self-end(type='submit' formaction='./api/test' formmethod='POST') Register
 
