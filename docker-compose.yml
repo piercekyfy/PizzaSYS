@@ -9,11 +9,16 @@ services:
         volumes:
             - ./src:/app/src
     db:
-        image: mongo-express
+        image: mongo
+        container_name: PizzaSYS_DB
         ports:
-            - 8081:8081
+            - 27017:27017
+        volumes:
+            - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+            - mongo_data:/data/db/
         environment:
-            ME_CONFIG_MONGODB_ADMINUSERNAME: root
-            ME_CONFIG_MONGODB_ADMINPASSWORD: pass
-            MONGO_INITDB_DATABASE: pizzasys
-            ME_CONFIG_BASICAUTH: false
+            MONGO_INITDB_ROOT_USERNAME: ${DB_USER} 
+            MONGO_INITDB_ROOT_PASSWORD: ${DB_CRED}
+volumes:
+  mongo_data:
+    driver: local
