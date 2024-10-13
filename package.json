@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "dev": "concurrently \"sass src/styles/:public/dist/ --watch --quiet\" \"nodemon src/index.js\""
+    "dev": "concurrently \"sass src/styles/:public/dist/ --watch --quiet\" \"nodemon --legacy-watch src/index.js\""
   },
   "author": "",
   "license": "ISC",

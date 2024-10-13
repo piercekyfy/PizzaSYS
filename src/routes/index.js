@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
 
     res.render('index', 
         { 
-            menu: categories
+            menu: categories,
+            user: null
         });
 })
 

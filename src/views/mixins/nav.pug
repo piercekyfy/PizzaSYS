@@ -1,4 +1,26 @@
 mixin nav
-    nav.row.navbar.navbar-expand-lg.bg-body-tertiary
-        div.container-fluid
-            a.navbar-brand(href='/') Saint Alfredo's Pizza
+    nav.navbar.navbar-expand-lg.sticky-top.navbar-light.bg-light.ps-3
+        a.navbar-brand(href='/') Saint Alfredo's Pizza
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon 
+
+        div.collapse.navbar-collapse#navbarSupportedContent.d-flex.flex-row.justify-content-between.pe-3
+            ul.navbar-nav
+                li.nav-item
+                    a.nav-link(href='/') Menu
+            div.dropdown
+                a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false') 
+                    if user
+                        span #{user.name}
+                    else
+                        span Account
+                div.dropdown-menu.dropdown-menu-end
+                    unless user
+                        a.dropdown-item(href='./login') Login
+                        a.dropdown-item(href='./register') Register
+                    else
+                        a.dropdown-item(href='#') Settings
+                        a.dropdown-item Logout
+                            
+        
+                        
