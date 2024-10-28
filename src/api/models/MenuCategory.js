@@ -9,7 +9,7 @@ const MenuItem = new mongoose.Schema({
 
 const menuCategory = new mongoose.Schema({
     title: String,
-    MenuItems: [MenuItem]
+    menuItems: [MenuItem]
 });
 
 module.exports = mongoose.model('MenuCategory', menuCategory);
