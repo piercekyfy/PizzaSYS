@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "build": "sass src/styles/:public/dist/",
+    "build": "sass src/styles/:public/dist/ && cd ./angular && npm run build",
     "dev": "concurrently \"sass src/styles/:public/dist/ --watch --poll --quiet\" \"nodemon --legacy-watch src/index.js\""
   },
   "author": "",
