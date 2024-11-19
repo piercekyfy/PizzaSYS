@@ -32,12 +32,17 @@
     }
 }
 
+cart-list {
+    width: 100%;
+    max-height: 40%;
+}
+
 .cart-body {
     @extend .d-flex;
     @extend .gap-2;
     @extend .border;
 
-    max-height: 40%;
+    height: 100%;
     padding: 3px;
     border-radius: 6px;
     overflow: scroll;

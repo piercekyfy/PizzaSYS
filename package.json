@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "build": "sass src/styles/:public/dist/ && cd ./angular && npm run build",
-    "dev": "concurrently \"sass src/styles/:public/dist/ --watch --poll --quiet\" \"nodemon --legacy-watch src/index.js\""
+    "build": "sass src/styles/:public/dist/ && ng build",
+    "dev": "ng build && concurrently \"sass src/styles/:public/dist/ --watch --poll --quiet\" \"nodemon --legacy-watch src/index.js\""
   },
   "author": "",
   "license": "ISC",

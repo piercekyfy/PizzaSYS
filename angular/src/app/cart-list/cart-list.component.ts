@@ -18,7 +18,7 @@ export class CartItem {
 }
 
 @Component({
-  selector: 'app-cart-list',
+  selector: 'cart-list',
   standalone: false,
   
   templateUrl: './cart-list.component.html',
