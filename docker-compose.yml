@@ -15,10 +15,10 @@ services:
             - 27017:27017
         volumes:
             - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-            - mongo_data:/data/db/
+            # - mongo_data:/data/db/
         environment:
             MONGO_INITDB_ROOT_USERNAME: ${DEV_DB_USER} 
             MONGO_INITDB_ROOT_PASSWORD: ${DEV_DB_CRED}
-volumes:
-  mongo_data:
-    driver: local
+# volumes:
+#   mongo_data:
+#     driver: local

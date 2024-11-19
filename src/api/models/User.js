@@ -9,4 +9,4 @@ const user = new mongoose.Schema({
     eircode: String
 });
 
-module.exports = mongoose.model('User', user);
+module.exports = mongoose.model('User', user, "users");

@@ -12,4 +12,4 @@ const menuCategory = new mongoose.Schema({
     menuItems: [MenuItem]
 });
 
-module.exports = mongoose.model('MenuCategory', menuCategory);
+module.exports = mongoose.model('MenuCategory', menuCategory, "menu");
