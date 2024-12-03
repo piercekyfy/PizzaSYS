@@ -1,11 +1,11 @@
-@for (category of data; track category.id) {
+@for (category of data; track category._id) { 
     <div class="category">
         <div class="header">
             <h4 class="mb-1">{{category.title}}</h4>
             <hr class="mt-0" />
         </div>
         <div class="items d-flex flex-column gap-3">
-            @for (item of category.items; track item.id)  {
+            @for (item of category.menuItems; track item._id)  {
                 <menu-item [data]='item'></menu-item>
             }
         </div>
