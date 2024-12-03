@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CartListComponent } from './cart-list/cart-list.component';
+import { MenuComponent } from './menu/menu.component';
+import { MenuBodyComponent } from './menu-body/menu-body.component';
+import { MenuItemComponent } from './menu-item/menu-item.component';
 import 'zone.js';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    CartListComponent
+    MenuComponent,
+    MenuBodyComponent,
+    MenuItemComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [CartListComponent]
+  providers: [provideHttpClient()],
+  bootstrap: [MenuComponent]
 })
 export class AppModule { }

@@ -36,6 +36,20 @@ menuController = {
         }, err => {
             res.status(500).json({error: "Failed to save to file."});
         })
+    },
+    delete: async function(req, res) {
+        try {
+            result = await MenuCategory.findOne({title: req.params.title}).exec()
+        
+            if(result) {
+                await MenuCategory.findByIdAndDelete(result._id)
+                res.status(200).json(result)
+            } else {
+                res.status(400).json({error: "File not found."})
+            }
+        } catch (err) {
+            res.status(500).json({error: "Failed to retrieve file."});
+        }
     }
 }
 

@@ -1,0 +1,15 @@
+<div class="cart-body">
+    <div class="card menu-item">
+        <div class="card-body clearfix">
+            <div class="d-flex flex-direction-row justify-content-between">
+                <h5 class="card-title">{{data.title}}</h5>
+                <h6 class="card-title mb-0">{{data.price}} €</h6>
+            </div>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{data.ingredientDesc}}</h6>
+            <div class="d-flex flex-direction-row justify-content-between">
+                <p class="card-text mb-0">{{data.desc}}</p>
+                <button class="btn btn-primary" [value]="data.id">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

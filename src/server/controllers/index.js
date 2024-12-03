@@ -21,7 +21,7 @@ module.exports = () => new class IndexController {
             res.render('index', 
                 { 
                     menu: categories ?? [],
-                    user: null
+                    user: req.user ?? null
                 });
         });        
     };

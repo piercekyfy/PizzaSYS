@@ -1,0 +1,13 @@
+@for (category of data; track category.id) {
+    <div class="category">
+        <div class="header">
+            <h4 class="mb-1">{{category.title}}</h4>
+            <hr class="mt-0" />
+        </div>
+        <div class="items d-flex flex-column gap-3">
+            @for (item of category.items; track item.id)  {
+                <menu-item [data]='item'></menu-item>
+            }
+        </div>
+    </div>
+}

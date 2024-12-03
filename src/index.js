@@ -2,6 +2,11 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const mongo = require('mongoose');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const bcrypt = require('bcrypt')
+const session = require('express-session')
+
 
 // server
 const indexRouter = require('./server/routes/index');
@@ -13,12 +18,23 @@ const menuRouter = require('./api/routes/menu');
 const usersRouter = require('./api/routes/users');
 
 const MenuCategory = require('./api/models/MenuCategory.js');
+const User = require('./api/models/User.js');
 
 const app = express();
 const port = 3000;
 
 app.set('views', path.join(__dirname, '/server/views'));
 app.set('view engine', 'pug');
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }
+}))
+
+app.use(passport.session())
+app.use(passport.authenticate('session'))
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,7 +50,6 @@ app.use('/api/users', usersRouter);
 
 mongo.connect(process.env.DB_URL);
 
-
 (async () => {
   if(!await MenuCategory.exists({title: 'Pizza'})) {
     new MenuCategory({ title: "Pizza", menuItems: [
@@ -49,8 +64,40 @@ mongo.connect(process.env.DB_URL);
       { id: 1, title: "Carbonara", price: 15.49, ingredientDesc: "Dummy2", desc: "Dummy Desc2."}
     ]}).save();
   }
+
+  if(!await User.exists({email: "test@test.com"})) {
+    new User({name: "Test Test", email: "test@test.com", password: await bcrypt.hash("test", 10), phone: '083123452', address: 'Test Address Test Street', eircode: "Y35W8H2"}).save();
+  }
   
 })();
+
+passport.serializeUser((user, next) => {
+  next(null, { id: user._id, name: user.name, email: user.email, phone: user.phone, address: user.address, eircode: user.eircode })
+})
+
+passport.deserializeUser((user, next) => {
+  next(null, user)
+})
+
+passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password'}, async (email, password, next) => {
+  let user = null;
+
+  try {
+    user = await User.findOne({email: email})
+  } catch (err) {
+    return next(err)
+  }
+
+
+  if(!user)
+    return next(null, false, { message: 'Incorrect username or password.' });
+
+  if(await bcrypt.compare(password, user.password)) {
+    return next(null, user)
+  } else {
+    return next(null, false, { message: 'Incorrect username or password.' });
+  }
+}))
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)

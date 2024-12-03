@@ -32,12 +32,23 @@
     }
 }
 
+
+menu-body {
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .gap-3;
+}
+
 cart-list {
     width: 100%;
     max-height: 40%;
 }
 
-.cart-body {
+menu {
+    @extend .col;
+}
+
+cart-body {
     @extend .d-flex;
     @extend .gap-2;
     @extend .border;
