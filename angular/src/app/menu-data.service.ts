@@ -10,7 +10,7 @@ export class MenuDataService {
     constructor(private http: HttpClient) {}
     public getMenu(): Observable<MenuCategory[]> {
         //API_URL + '/menu'
-        return this.http.get<MenuCategory[]>("http://localhost:3000/api/menu");
+        return this.http.get<MenuCategory[]>(API_URL);
     }
     
 }
