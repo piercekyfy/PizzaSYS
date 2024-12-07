@@ -20,8 +20,22 @@ const usersRouter = require('./api/routes/users');
 const MenuCategory = require('./api/models/MenuCategory.js');
 const User = require('./api/models/User.js');
 
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT ?? 3000;
+
+
+if(process.env.SSL_KEY) {
+  process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+  const credentials = { key: process.env.SSL_KEY, cert: process.env.SSL_CERT }
+  http.createServer(app).listen(port)
+  https.createServer(credentials, app).listen(443)
+  console.log("Created HTTPS Server")
+}
+
 
 app.set('views', path.join(__dirname, '/server/views'));
 app.set('view engine', 'pug');
@@ -68,7 +82,6 @@ mongo.connect(process.env.DB_URL);
   if(!await User.exists({email: "test@test.com"})) {
     new User({name: "Test Test", email: "test@test.com", password: await bcrypt.hash("test", 10), phone: '083123452', address: 'Test Address Test Street', eircode: "Y35W8H2"}).save();
   }
-  
 })();
 
 passport.serializeUser((user, next) => {
@@ -99,6 +112,8 @@ passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password
   }
 }))
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
-});
+if(process.env.SSL_KEY === undefined) {
+  app.listen(port, () => {
+    console.log(`App listening on port ${port}`)
+  });
+}

@@ -37,6 +37,21 @@ menuController = {
             res.status(500).json({error: "Failed to save to file."});
         })
     },
+    createOne: async function(req,res) {
+        const category = await MenuCategory.findOne({"title" : req.params.title}).exec()
+
+        if(!category) {
+            return res.status(400).json({"error" : "Category does not exist"})
+        }
+
+        const menuItem = { title: req.body.title, price: req.body.price, ingredientDesc: req.body.ingredientDesc, desc: req.body.desc ?? ""}
+
+        category.menuItems.push(menuItem);
+
+        await category.save()
+
+        return res.status(200).json(category);
+    },
     delete: async function(req, res) {
         try {
             result = await MenuCategory.findOne({title: req.params.title}).exec()
