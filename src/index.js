@@ -40,6 +40,8 @@ if(process.env.SSL_KEY) {
 app.set('views', path.join(__dirname, '/server/views'));
 app.set('view engine', 'pug');
 
+app.use(require('cors')())
+
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
